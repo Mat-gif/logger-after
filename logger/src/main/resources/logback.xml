@@ -1,0 +1,20 @@
+<configuration>
+    <!-- Configuration de l'appender pour écrire dans un fichier -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>myLogs.xml</file> <!-- Le fichier dans lequel les logs seront enregistrés -->
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern> <!-- Le format du message de log -->
+        </encoder>
+
+    </appender>
+
+    <!-- Configuration du niveau racine des logs -->
+    <root level="INFO">
+        <appender-ref ref="FILE" /> <!-- Lier l'appender défini ci-dessus au niveau racine -->
+    </root>
+
+    <!-- Exclure les logs de certaines classes Spring et Hibernate -->
+    <logger name="org.springframework" level="ERROR" />
+    <logger name="org.hibernate" level="ERROR" />
+
+</configuration>
