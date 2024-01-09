@@ -14,7 +14,7 @@ import java.sql.Date;
 public class ProductDTO {
     private Long id;
     @NotBlank
-    private Long id_user;
+    private Long id_user; // attention id du user a l'orignie de la requette pas le proprietaire du produit !!!
     @NotBlank
     private String name;
     @NotBlank
