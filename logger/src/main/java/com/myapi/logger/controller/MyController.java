@@ -34,7 +34,7 @@ public class MyController {
     @PostMapping("user")
     public ResponseEntity<?> addUser(@RequestBody
     UserDTO userDTO) {
-        logger.warn(" [POST] , Method : addUser ,  userDTO :  [{}] " , userDTO);;
+        logger.warn(" [POST] , Method : addUser , userDTO :  [{}]" , userDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.addUser(userDTO));
     }
 
@@ -42,7 +42,7 @@ public class MyController {
     @GetMapping("products/{id_user}")
     public ResponseEntity<?> getAllProducts(@PathVariable
     Long id_user) {
-        logger.warn(" [GET] , Method : getAllProducts ,  id_user :  [{}] " , id_user);;
+        logger.warn(" [GET] , Method : getAllProducts , id_user :  [{}]" , id_user);
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
@@ -51,7 +51,7 @@ public class MyController {
     public ResponseEntity<?> getProductById(@PathVariable
     Long id, @PathVariable
     Long id_user) {
-        logger.warn(" [GET] , Method : getProductById ,  id :  [{}]  id_user :  [{}] " , id,id_user);;
+        logger.warn(" [GET] , Method : getProductById , id :  [{}] , id_user :  [{}]" , id,id_user);
         try {
             return ResponseEntity.ok(productService.getProductById(id));
         } catch (ProductNotFoundException e) {
@@ -63,7 +63,7 @@ public class MyController {
     @PostMapping("products")
     public ResponseEntity<?> addProduct(@RequestBody
     ProductDTO productDTO) {
-        logger.warn(" [POST] , Method : addProduct ,  productDTO :  [{}] " , productDTO);;
+        logger.warn(" [POST] , Method : addProduct , productDTO :  [{}]" , productDTO);
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(productService.addProduct(productDTO));
         } catch (ProductAlreadyExistsException | InvalidProductException e) {
@@ -76,7 +76,7 @@ public class MyController {
     public ResponseEntity<?> deleteProduct(@PathVariable
     Long id, @PathVariable
     Long id_user) {
-        logger.warn(" [DELETE] , Method : deleteProduct ,  id :  [{}]  id_user :  [{}] " , id,id_user);;
+        logger.warn(" [DELETE] , Method : deleteProduct , id :  [{}] , id_user :  [{}]" , id,id_user);
         try {
             productService.deleteProductById(id);
             return ResponseEntity.noContent().build();
@@ -90,7 +90,7 @@ public class MyController {
     public ResponseEntity<?> updateProduct(@PathVariable
     Long id, @RequestBody
     ProductDTO productDTO) {
-        logger.warn(" [PUT] , Method : updateProduct ,  id :  [{}]  productDTO :  [{}] " , id,productDTO);;
+        logger.warn(" [PUT] , Method : updateProduct , id :  [{}] , productDTO :  [{}]" , id,productDTO);
         try {
             return ResponseEntity.ok(productService.updateProduct(id, productDTO));
         } catch (ProductNotFoundException | InvalidProductException e) {
